@@ -1,0 +1,22 @@
+{
+  "urls": [
+    {
+      "name": "aowu",
+      "url": "https://9763.kstore.vip/aowu.json",
+      "type": 0
+    },
+    {
+      "name": "王小二",
+      "url": "https://9280.kstore.vip/newwex.json",
+      "type": 0
+    }
+  ],
+  "lives": [
+    {
+      "name": "自维护直播·实测",
+      "url": "https://down.nigx.cn/raw.githubusercontent.com/hjwp2026-cmd/self-tvbox/main/live.txt",
+      "type": 0
+    }
+  ],
+  "spider": ""
+}

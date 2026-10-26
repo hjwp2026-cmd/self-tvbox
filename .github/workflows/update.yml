@@ -1,0 +1,44 @@
+name: check-update
+
+on:
+  schedule:
+    # 每日 09:00 北京时间(01:00 UTC)全身体检
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run check
+        run: python scripts/check.py
+
+      - name: Summary
+        run: |
+          {
+            echo "## 体检结果"
+            cat status.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit and push
+        run: |
+          git config user.name "self-tvbox-bot"
+          git config user.email "self-tvbox-bot@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: 自动体检 $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "无变化,跳过提交"
+          fi
