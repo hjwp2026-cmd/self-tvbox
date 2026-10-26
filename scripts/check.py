@@ -20,7 +20,11 @@ UA = "okhttp/4.9.0"
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 上游(别人维护的素材库,挂了不影响我们已固化的列表)
-UPSTREAM_URL = "https://down.nigx.cn/raw.githubusercontent.com/doubletree6/tvbox-iptv-subscription/main/cn_all_tvbox_multi.txt"
+# 双源自适应:云端(GitHub Actions)用 raw 直连,本地/电视环境用 nigx 镜像
+UPSTREAM_URLS = [
+    "https://raw.githubusercontent.com/doubletree6/tvbox-iptv-subscription/main/cn_all_tvbox_multi.txt",
+    "https://down.nigx.cn/raw.githubusercontent.com/doubletree6/tvbox-iptv-subscription/main/cn_all_tvbox_multi.txt",
+]
 # 自家产物地址(供 tvbox.json 自引用)
 SELF_LIVE = "https://down.nigx.cn/raw.githubusercontent.com/hjwp2026-cmd/self-tvbox/main/live.txt"
 # 点播聚合源(精选,后续发现好源往这里加)
@@ -30,7 +34,7 @@ VOD_SOURCES = [
 ]
 
 MAX_PER_CHANNEL = 3      # 每频道最多保留线路数
-MAX_FAIL = 2             # 连续失败 N 次才剔除
+MAX_FAIL = 3             # 连续失败 N 次才剔除(云端测国内线路慢,防误杀)
 TIMEOUT = 8              # 每线路探测超时(秒)
 THREADS = 24             # 并发数
 UPSTREAM_FAIL_RETRY = 2  # 上游连续失败几次后本次跳过更新
@@ -120,6 +124,23 @@ def save_state(state):
               ensure_ascii=False, indent=1)
 
 
+def count_existing_live():
+    """统计现有 live.txt 的频道数(按分类)。"""
+    counts = {}
+    cat = ""
+    p = os.path.join(BASE, "live.txt")
+    if os.path.exists(p):
+        for line in open(p, encoding="utf-8"):
+            line = line.strip()
+            if not line:
+                continue
+            if line.endswith("#genre#"):
+                cat = line[: -len("#genre#")].strip().rstrip(",")
+            elif "," in line and not line.startswith("#"):
+                counts[cat] = counts.get(cat, 0) + 1
+    return counts
+
+
 def build_live(items, state):
     """分组 -> 优选 -> 防抖,生成 live.txt 行。"""
     grouped = {}
@@ -144,6 +165,7 @@ def build_live(items, state):
             st["fail"] += 1
             if st["fail"] < MAX_FAIL:
                 picks.append((u, 10 ** 9))  # 降级保留,排最后
+                changed["degraded"] += 1
         picks.sort(key=lambda x: x[1])
         for u, _ in picks[:MAX_PER_CHANNEL]:
             chosen.append((cat, name, u))
@@ -209,17 +231,19 @@ def write_tvbox(alive):
               ensure_ascii=False, indent=2)
 
 
-def write_status(upstream_ok, counts, changed, alive, skipped=False):
+def write_status(upstream_ok, counts, changed, alive, skipped=False, src=""):
+    live_total = sum(counts.values())
     lines = [
         "# 体检报告",
         "",
         f"- 生成时间: {time.strftime('%Y-%m-%d %H:%M:%S %z')}",
-        f"- 上游抓取: {'✅ 成功' if upstream_ok else '❌ 失败(继续使用现有列表)'}",
+        f"- 上游抓取: {'✅ 成功' if upstream_ok else '❌ 失败(继续使用现有列表)'}"
+        + (f"(来源: {src})" if upstream_ok else ""),
         f"- 本次{'跳过线路更新(上游连续失败)' if skipped else '执行线路体检'}",
-        f"- 直播频道: {sum(counts.values())} 个(分类: " +
+        f"- 直播频道: {live_total} 个(分类: " +
         ", ".join(f"{k} {v}" for k, v in counts.items()) + ")",
         f"- 变更: 新增 {changed['added']} · 保留 {changed['kept']} · 剔除 {changed['dropped']} · 降级保留 {changed['degraded']}",
-        f"- 点播源: " + ("、".join(a["name"] for a in alive) if alive else "全部失效 ❌"),
+        f"- 点播源: " + ("、".join(a["name"] for a in alive) if alive else "全部失效 ❌(保留上次配置)"),
         "",
     ]
     open(os.path.join(BASE, "status.md"), "w", encoding="utf-8").write("\n".join(lines))
@@ -228,35 +252,45 @@ def write_status(upstream_ok, counts, changed, alive, skipped=False):
 def main():
     skipped = False
     upstream_ok = False
+    src = ""
     counts, changed = {}, {"added": 0, "kept": 0, "dropped": 0, "degraded": 0}
     st = load_state()
     up_st = st.setdefault("_upstream", {"fail": 0})
-    try:
-        status, blob, _ = http_get(UPSTREAM_URL, timeout=15)
-        if status == 200 and blob:
-            up_st["fail"] = 0
-            upstream_ok = True
-        else:
-            raise RuntimeError(f"upstream status {status}")
-    except Exception:
-        up_st["fail"] += 1
-        upstream_ok = False
+    blob = None
+    # 双源自适应:谁通用谁
+    for u in UPSTREAM_URLS:
+        try:
+            status, b, _ = http_get(u, timeout=15)
+            if status == 200 and b:
+                blob, src = b, u
+                upstream_ok = True
+                break
+        except Exception:
+            continue
 
-    if upstream_ok and up_st["fail"] == 0:
+    if upstream_ok:
+        up_st["fail"] = 0
         items = parse_live(blob.decode("utf-8", "ignore"))
-        if not items:
-            raise RuntimeError("上游解析为空")
-        counts, changed = build_live(items, st)
-        save_state(st)
-    elif up_st["fail"] >= UPSTREAM_FAIL_RETRY:
-        skipped = True
+        if items:
+            counts, changed = build_live(items, st)
+            save_state(st)
+        else:
+            upstream_ok = False  # 解析为空视为上游失败
+
+    if not upstream_ok:
+        up_st["fail"] += 1
+        if up_st["fail"] >= UPSTREAM_FAIL_RETRY:
+            skipped = True
+        counts = count_existing_live()  # 上游失败:沿用现有列表,统计兜底
 
     alive = check_vod()
-    write_tvbox(alive)
-    write_status(upstream_ok, counts, changed, alive, skipped)
+    if alive:
+        write_tvbox(alive)  # 点播全挂时不动 tvbox.json(保留上次配置)
+    write_status(upstream_ok, counts, changed, alive, skipped, src)
     print(f"[ok] 上游={'过' if upstream_ok else '挂'} 频道={sum(counts.values())} "
-          f"新增={changed['added']} 剔除={changed['dropped']} 点播={[a['name'] for a in alive]}")
-    return 0 if (upstream_ok or skipped) and alive else 1
+          f"新增={changed['added']} 剔除={changed['dropped']} 点播={[a['name'] for a in alive] or '全挂(保留旧)'}")
+    # 只要产物仍完整(有直播频道或有点播源)就算成功;全瘫才报错报警
+    return 0 if (sum(counts.values()) > 0 or alive) else 1
 
 
 if __name__ == "__main__":
