@@ -27,10 +27,10 @@
   "fail": 0
  },
  "http://198.204.228.26/live/cctv6hd.m3u8": {
-  "fail": 0
+  "fail": 1
  },
  "http://69.30.245.50/live/cctv6.m3u8": {
-  "fail": 0
+  "fail": 1
  },
  "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv7hd": {
   "fail": 0
@@ -153,7 +153,7 @@
   "fail": 0
  },
  "https://hwapi.yntv.net/ew265l/z1z6s5.m3u8": {
-  "fail": 23
+  "fail": 24
  },
  "http://play1-qk.nmtv.cn/live/1769652018126032.m3u8": {
   "fail": 0
@@ -189,7 +189,7 @@
   "fail": 0
  },
  "http://120.40.39.246:352/newlive/live/hls/34/live.m3u8": {
-  "fail": 1
+  "fail": 0
  },
  "http://101.66.198.184:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=0&authid=0": {
   "fail": 0
@@ -1281,7 +1281,7 @@
   "fail": 0
  },
  "http://192.151.150.154/live/cctv9hd.m3u8": {
-  "fail": 0
+  "fail": 1
  },
  "https://v4-702cae17a28d6e4f0c0002bba021d934.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=02462f9f8d10f4e88fbd7b3f0a427534": {
   "fail": 0
@@ -1626,7 +1626,7 @@
   "fail": 0
  },
  "http://45.192.97.170:8880/play/449.m3u8": {
-  "fail": 0
+  "fail": 1
  },
  "http://221.226.51.220:50081/newlive/live/hls/10/live.m3u8": {
   "fail": 0
@@ -3240,7 +3240,7 @@
   "fail": 0
  },
  "http://fuxin.yunjifei.top:999/tsfile/live/0113_1.m3u8?key=txiptv": {
-  "fail": 1
+  "fail": 0
  },
  "http://124.228.160.40:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0": {
   "fail": 1
@@ -4284,6 +4284,267 @@
   "fail": 0
  },
  "http://101.66.194.88:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://118.122.144.115:8888/newlive/live/hls/1/live.m3u8": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://221.226.51.220:50081/newlive/live/hls/1/live.m3u8": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://1.24.39.180:9003/hls/3/index.m3u8": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://153.0.171.163:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://221.7.175.154:8445/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://120.40.39.246:352/newlive/live/hls/4/live.m3u8": {
+  "fail": 0
+ },
+ "http://59.39.89.130:60901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://221.7.175.154:8445/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://221.7.175.154:8445/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://fuxin.yunjifei.top:999/tsfile/live/0007_1.m3u8?key=txiptv": {
+  "fail": 0
+ },
+ "http://221.7.175.154:8445/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://120.40.39.246:352/newlive/live/hls/9/live.m3u8": {
+  "fail": 0
+ },
+ "http://118.122.144.115:8888/newlive/live/hls/9/live.m3u8": {
+  "fail": 0
+ },
+ "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd": {
+  "fail": 0
+ },
+ "http://112.123.243.37:50085/tsfile/live/0010_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://118.122.144.115:8888/newlive/live/hls/10/live.m3u8": {
+  "fail": 0
+ },
+ "https://v4-702cae17a28d6e4f0c0002bba021d934.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=d7c704fae0a49ee59593d37d02d5eaeb": {
+  "fail": 0
+ },
+ "https://v4-e6b1c5baf4e240fe63adbf68dda23435.livehwc4.com/play.kankanlive.com/live/1698423397390920.m3u8?sub_m3u8=true&edge_slice=true&user_session_id=5970822daa951e2f8dfe3887e5c8d00e": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://1.24.39.180:9003/hls/13/index.m3u8": {
+  "fail": 0
+ },
+ "http://fuxin.yunjifei.top:999/tsfile/live/0013_1.m3u8?key=txiptv": {
+  "fail": 0
+ },
+ "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0014_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://120.40.39.246:352/newlive/live/hls/15/live.m3u8": {
+  "fail": 0
+ },
+ "http://45.192.97.170:8880/play/454.m3u8": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0015_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://101.66.199.181:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://113.15.109.216:59901/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0119_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0116_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://45.192.97.170:8880/play/538.m3u8": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://101.66.199.96:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0125_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://221.7.175.154:8445/tsfile/live/0113_2.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0110_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://101.66.194.88:9901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://221.226.51.220:50081/newlive/live/hls/18/live.m3u8": {
+  "fail": 0
+ },
+ "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jswshd": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://101.66.194.88:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hewshd": {
+  "fail": 1
+ },
+ "http://123.160.173.129:85/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://tvcdn.stream3.hndt.com/tv/65c4a6d5017e1000b2b6ea2500000000_transios/playlist.m3u8?wsSecret=7c61ad868edf72824aa419f76df4df13&wsTime=1794945801": {
+  "fail": 1
+ },
+ "http://101.66.194.88:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://38.75.136.137:98/gslb/dsdqpub/zjwshd.m3u8?auth=testpub": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0132_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://198.204.228.26/live/hbwshd.m3u8": {
+  "fail": 0
+ },
+ "http://101.66.194.88:9901/tsfile/live/0019_1.m3u8?key=txiptv&playlive=0&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://45.192.97.170:8880/play/476.m3u8": {
+  "fail": 0
+ },
+ "http://45.192.97.170:8880/play/523.m3u8": {
+  "fail": 0
+ },
+ "http://45.192.97.170:8880/play/477.m3u8": {
+  "fail": 0
+ },
+ "http://45.192.97.170:8880/play/516.m3u8": {
+  "fail": 0
+ },
+ "http://fuxin.yunjifei.top:999/tsfile/live/0120_1.m3u8?key=txiptv": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://123.160.173.129:85/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0": {
+  "fail": 0
+ },
+ "http://218.13.139.26:9901/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0": {
   "fail": 0
  }
 }
